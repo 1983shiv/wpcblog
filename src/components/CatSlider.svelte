@@ -19,6 +19,8 @@
             src={item.featured_image}
             alt="stew"
             class="h-48 md:h-96 w-full object-cover"
+            width="1400px"
+            height="400px"
           />
           <!-- <div class="m-4">
             <span class="font-bold">{item.title}</span>
