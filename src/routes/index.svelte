@@ -1,4 +1,8 @@
-<script context="module">
+<script>
+  import RecentCarousel from "../components/RecentCarousel.svelte";
+  import CatSlider from "../components/CatSlider.svelte";
+  import CatCarousel from "../components/CatCarousel.svelte";
+  import SvelteSeo from "svelte-seo";
   import { 
     urls, 
     metaTitle, 
@@ -7,82 +11,85 @@
     displayCategory2, 
     displayCategory3 } from "../../wp-settings.js";
 
-  export async function preload({ params, query }) {
-    // all posts
-    const res = await this.fetch(urls.POST);
-    if (res.status !== 200) {
-      return this.error(404, 'Not found');
-    }
-    const posts = await res.json();
+  let dc1Posts = {};
+  let dc2Posts = {};
+  let dc3Posts = {};
 
-    // featured category posts
-    const featuredcat = await this.fetch(`${urls.POST}/?category=featured`);
-    if (featuredcat.status !== 200) {
-      return this.error(404, 'Not found');
-    }
-    const featuredPost = await featuredcat.json();
+  async function getPosts() {
+    if(process.browser){
+      let res1 = await fetch(urls.POST);
 
-    let dc1Posts = {};
-    let dc2Posts = {};
-    let dc3Posts = {};
-    // displayCategory1's posts
-    if (displayCategory1.length > 0) {
-      const dc1 = await this.fetch(`${urls.POST}/?category=${displayCategory1}`);
+      if (res1.status !== 200) {
+        return this.error(404, 'Not found');
+      }
+
+      let posts = await res1.json();
+      let sliderPosts = [];
+      if(posts.posts.length > 3){
+        sliderPosts = posts.posts.slice(0,3);
+      } else {
+        sliderPosts = posts.posts;
+      }
+      return sliderPosts;
+    }
+  }
+
+  async function getfeaturedcat() {
+    if(process.browser){
+      let res2 = await fetch(`${urls.POST}/?category=featured`);
+
+      if (res2.status !== 200) {
+        return this.error(404, 'Not found');
+      }
+
+      let featuredposts = await res2.json();
+      featuredposts = featuredposts.posts
+      return featuredposts;
+    }
+  }
+
+  async function getDisplayCategory1() {
+    if(process.browser){
+      const dc1 = await fetch(`${urls.POST}/?category=${displayCategory1}`);
       if (dc1.status !== 200) {
         return this.error(404, 'Not found');
       }
       dc1Posts = await dc1.json();
       dc1Posts = dc1Posts.posts.length > 3 ? dc1Posts.posts.slice(0,4) : dc1Posts.posts;
+      return dc1Posts;
     }
+  }
 
-    // displayCategory2's posts
-    if (displayCategory2.length > 0) {
-      const dc2 = await this.fetch(`${urls.POST}/?category=${displayCategory2}`);
+  async function getDisplayCategory2() {
+    if(process.browser){
+      const dc2 = await fetch(`${urls.POST}/?category=${displayCategory2}`);
       if (dc2.status !== 200) {
         return this.error(404, 'Not found');
       }
       dc2Posts = await dc2.json();
       dc2Posts = dc2Posts.posts.length > 3 ? dc2Posts.posts.slice(0,4) : dc2Posts.posts;
+      return dc2Posts;
     }
-
-    // displayCategory3's posts
-    if (displayCategory3.length > 0) {
-      const dc3 = await this.fetch(`${urls.POST}/?category=${displayCategory3}`);
+  }
+  
+  async function getDisplayCategory3() {
+    if(process.browser){
+      const dc3 = await fetch(`${urls.POST}/?category=${displayCategory3}`);
       if (dc3.status !== 200) {
         return this.error(404, 'Not found');
       }
       dc3Posts = await dc3.json();
       dc3Posts = dc3Posts.posts.length > 3 ? dc3Posts.posts.slice(0,4) : dc3Posts.posts;
+      return dc3Posts;
     }
-
-    return {
-      posts: posts.posts,
-      featuredPost: featuredPost.posts,
-      dc1Posts: dc1Posts ? dc1Posts : null,
-      dc2Posts: dc2Posts ? dc2Posts : null,
-      dc3Posts: dc3Posts ? dc3Posts : null,
-    };
   }
-</script>
 
-<script>
-  import RecentCarousel from "../components/RecentCarousel.svelte";
-  import CatSlider from "../components/CatSlider.svelte";
-  import CatCarousel from "../components/CatCarousel.svelte";
-  import SvelteSeo from "svelte-seo";
-  export let posts;
-  export let featuredPost;
-  export let dc1Posts;
-  export let dc2Posts;
-  export let dc3Posts;  
-
-  let sliderPosts = [];
-
-  if(posts.length > 3){
-    sliderPosts = posts.slice(0,3);
-  } else {
-    sliderPosts = posts;
-  }
+  const postPromise = getPosts();
+  const featuredCatPromise = getfeaturedcat();
+  const displayCategory1Promise = displayCategory1.length > 0 ? getDisplayCategory1() : [];
+  const displayCategory2Promise = displayCategory2.length > 0 ? getDisplayCategory2() : [];
+  const displayCategory3Promise = displayCategory3.length > 0 ? getDisplayCategory3() : [];
+  
 
 </script>
 
@@ -97,40 +104,67 @@
   }}
 />
 
-<CatSlider paginatedItems={sliderPosts} />
+{#await postPromise}
+	<p>Loading...</p>
+{:then sliderPosts}
+  <CatSlider paginatedItems={sliderPosts} />
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
 
 <section
   class="flex flex-wrap overflow-hidden lg:px-16 px-6"
 >
 
-<CatCarousel
-  paginatedItems={featuredPost}
+
+
+{#await featuredCatPromise}
+	<p>Loading...</p>
+{:then featuredposts}
+  <CatCarousel
+  paginatedItems={featuredposts}
   title1="Featured articles"
   title2=""
-/>
-
-{#if dc1Posts.length > 0}
-  <RecentCarousel
-    paginatedItems={dc1Posts}
-    title1="Recent articles from "
-    title2="{displayCategory1}"
   />
-{/if}
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
 
-{#if dc2Posts.length > 0}
-<RecentCarousel
+{#await displayCategory1Promise}
+	<p>Loading...</p>
+{:then dc1Posts}
+  <RecentCarousel
+  paginatedItems={dc1Posts}
+  title1="Recent articles from "
+  title2="{displayCategory1}"
+  />
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+
+{#await displayCategory2Promise}
+	<p>Loading...</p>
+{:then dc2Posts}
+  <RecentCarousel
   paginatedItems={dc2Posts}
   title1="Recent articles from "
   title2="{displayCategory2}"
-/>
-{/if}
+  />
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
 
-{#if dc3Posts.length > 0}
-<RecentCarousel
+{#await displayCategory3Promise}
+	<p>Loading...</p>
+{:then dc3Posts}
+  <RecentCarousel
   paginatedItems={dc3Posts}
   title1="Recent articles from "
   title2="{displayCategory3}"
-/>
-{/if}
+  />
+{:catch error}
+	<p style="color: red">{error.message}</p>
+{/await}
+
 
 </section>
