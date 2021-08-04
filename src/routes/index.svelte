@@ -1,5 +1,11 @@
 <script context="module">
-  import { urls, metaTitle, metaDescription, displayCategory1, displayCategory2, displayCategory3 } from "../../wp-settings.js";
+  import { 
+    urls, 
+    metaTitle, 
+    metaDescription, 
+    displayCategory1, 
+    displayCategory2, 
+    displayCategory3 } from "../../wp-settings.js";
 
   export async function preload({ params, query }) {
     // all posts

@@ -3,6 +3,39 @@
   import { styling } from "../../wp-settings"
   import { ChevronLeftIcon, ChevronRightIcon } from "svelte-feather-icons";
   export let paginatedItems;
+
+  // https://svelte.dev/repl/70e61d6cc91345cdaca2db9b7077a941?version=3.41.0
+  // export async function fetchImage(url) {
+  //   if (process.browser){
+  //     const response = await fetch(url, {
+  //           mode: 'no-cors', // no-cors, *cors, same-origin,
+  //           headers: {
+  //             'Content-Type': 'application/json'
+  //           }
+  //         }
+  //       );
+  //     const data = await response.json();
+  //     return { data }
+  //   }
+	// }
+
+  // const items = paginatedItems.map((item) => {
+  //   const { featured_image } = item;
+  //   const fetchImage = (async (featured_image ) => {
+  //     if (process.browser){
+  //       const response = await fetch(featured_image , {
+  //           mode: 'no-cors', // no-cors, *cors, same-origin,
+  //           headers: {
+  //             'Content-Type': 'application/json'
+  //           }
+  //         }
+  //       );
+  //       return await response.json()
+  //     }
+  //   })()
+  //   return { ...item, featured_image: fetchImage}
+  // })
+  // console.log('items', items)
 </script>
 
 <div class="relative mb-8">
@@ -20,10 +53,6 @@
             alt="stew"
             class="h-48 md:h-96 w-full object-cover"
           />
-          <!-- <div class="m-4">
-            <span class="font-bold">{item.title}</span>
-            <span class="block text-gray-500 text-sm">Recipe by Mario</span>
-          </div> -->
           <a href="articles/{item.slug}">
             <div
               class="bg-{styling.primeColor} py-4 px-8 bg-opacity-60 absolute vertical-center text-center text-secondary-200 text-xs uppercase font-bold"
