@@ -105,11 +105,11 @@
 />
 
 {#await postPromise}
-	<p>Loading...</p>
+  <p>Loading...</p>
 {:then sliderPosts}
   <CatSlider paginatedItems={sliderPosts} />
 {:catch error}
-	<p style="color: red">{error.message}</p>
+  <p style="color: red">{error.message}</p>
 {/await}
 
 <section
@@ -119,7 +119,7 @@
 
 
 {#await featuredCatPromise}
-	<p>Loading...</p>
+  <p>Loading...</p>
 {:then featuredposts}
   <CatCarousel
   paginatedItems={featuredposts}
@@ -127,11 +127,11 @@
   title2=""
   />
 {:catch error}
-	<p style="color: red">{error.message}</p>
+  <p style="color: red">{error.message}</p>
 {/await}
 
 {#await displayCategory1Promise}
-	<p>Loading...</p>
+  <p>Loading...</p>
 {:then dc1Posts}
   <RecentCarousel
   paginatedItems={dc1Posts}
@@ -139,11 +139,11 @@
   title2="{displayCategory1}"
   />
 {:catch error}
-	<p style="color: red">{error.message}</p>
+  <p style="color: red">{error.message}</p>
 {/await}
 
 {#await displayCategory2Promise}
-	<p>Loading...</p>
+  <p>Loading...</p>
 {:then dc2Posts}
   <RecentCarousel
   paginatedItems={dc2Posts}
@@ -151,11 +151,11 @@
   title2="{displayCategory2}"
   />
 {:catch error}
-	<p style="color: red">{error.message}</p>
+  <p style="color: red">{error.message}</p>
 {/await}
 
 {#await displayCategory3Promise}
-	<p>Loading...</p>
+  <p>Loading...</p>
 {:then dc3Posts}
   <RecentCarousel
   paginatedItems={dc3Posts}
@@ -163,7 +163,7 @@
   title2="{displayCategory3}"
   />
 {:catch error}
-	<p style="color: red">{error.message}</p>
+  <p style="color: red">{error.message}</p>
 {/await}
 
 

@@ -2,7 +2,6 @@
   // Menu Source: https://github.com/justalever/tailwind-navbar/blob/master/public/index.html
   import Navli from "../components/Navli.svelte";
   import Logo from "../components/Logo.svelte";
-  import { styling } from "../../wp-settings"
   export let segment;
   export let isOpen = true;
   export let catmenu;
@@ -55,7 +54,7 @@
         <li on:click={toggleNav}>
           <Navli
             text="Home"
-            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-{styling.primeColorws}-400"
+            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-pink-400"
             linkk="."
             {segment}
           />
@@ -65,7 +64,7 @@
             <li on:click={toggleNav}>
               <Navli
                 text={cat.name}
-                classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-{styling.primeColorws}-400"
+                classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-pink-400"
                 linkk="/categories/{cat.slug}"
                 {segment}
               />
@@ -75,7 +74,7 @@
         <li on:click={toggleNav}>
           <Navli
             text="Contact"
-            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-{styling.primeColorws}-400"
+            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-pink-400"
             linkk="contact"
             {segment}
           />
@@ -94,7 +93,7 @@
                 class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1"
               >
                 <svg
-                  class="h-4 w-4 text-{styling.primeColor}"
+                  class="h-4 w-4 text-pink-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"

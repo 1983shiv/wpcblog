@@ -1,10 +1,10 @@
 <script context="module">
   import Logo from "./Logo.svelte";
   import Socialbutton from "./Socialbutton.svelte";
-  import { settings, styling } from '../../wp-settings'
+  import { settings } from '../../wp-settings'
 </script>
 
-<footer class="text-white bg-{styling.bgHero}-50 body-font mb-0">
+<footer class="text-white bg-gray-50 body-font mb-0">
   <div class="flex flex-wrap px-12 py-5 items-center justify-center">
     <a
       href="."

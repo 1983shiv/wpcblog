@@ -1,5 +1,5 @@
 <script>
-  import { customLogo, styling } from '../../wp-settings'
+  import { customLogo } from '../../wp-settings'
 
 </script>
 
@@ -11,7 +11,7 @@
     {:else}
     
     <svg
-      class="h-6 w-6 text-{styling.primeColor}"
+      class="h-6 w-6 text-pink-500"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

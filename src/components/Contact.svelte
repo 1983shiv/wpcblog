@@ -1,10 +1,8 @@
 <!-- <form action="https://getform.io/f/3d8af4d6-d4dc-41e1-b2ea-43bb410a81a5" method="POST"> -->
 <script>
   import { onMount } from "svelte";
-  import Socialbutton from "./Socialbutton.svelte";
-  import { styling } from '../../wp-settings'
   let messageSent = false;
-  export let contactbg;
+  export let contactbg = 'bg-gray-50';
 
   onMount(() => {
     const formElement = document.querySelector("#contact-form");
@@ -59,7 +57,7 @@
                 type="text"
                 id="fullname"
                 name="fullname"
-                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-{styling.primeColorws}-500 focus:bg-white focus:ring-2 focus:ring-{styling.primeColorws}-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
           </div>
@@ -72,7 +70,7 @@
                 type="email"
                 id="email"
                 name="email"
-                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-{styling.primeColorws}-500 focus:bg-white focus:ring-2 focus:ring-{styling.primeColorws}-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
               />
             </div>
           </div>
@@ -84,21 +82,21 @@
               <textarea
                 id="message"
                 name="message"
-                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-{styling.primeColorws}-500 focus:bg-white focus:ring-2 focus:ring-{styling.primeColorws}-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-pink-500 focus:bg-white focus:ring-2 focus:ring-pink-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               />
             </div>
           </div>
           <div class="p-2 w-full">
             <button
               type="submit"
-              class="flex mx-auto text-white bg-{styling.primeColorws}-500 border-0 py-2 px-8 focus:outline-none hover:bg-{styling.primeColorws}-600 rounded text-lg"
+              class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg"
               >Submit</button
             >
           </div>
         </div>
       </form>
       <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
-        <a href="#srivastava.shiv" class="text-{styling.primeColorws}-500"
+        <a href="#srivastava.shiv" class="text-pink-500"
           >Skype: srivastava.shiv</a
         >
       </div>

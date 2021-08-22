@@ -1,6 +1,5 @@
 <script>
   import Carousel from "@beyonk/svelte-carousel";
-  import { styling } from "../../wp-settings"
   import { ChevronLeftIcon, ChevronRightIcon } from "svelte-feather-icons";
   export let paginatedItems;
 
@@ -55,7 +54,7 @@
           />
           <a href="articles/{item.slug}">
             <div
-              class="bg-{styling.primeColor} py-4 px-8 bg-opacity-60 absolute vertical-center text-center text-secondary-200 text-xs uppercase font-bold"
+              class="bg-pink-500 py-4 px-8 bg-opacity-60 absolute vertical-center text-center text-secondary-200 text-xs uppercase font-bold"
             >
               <svg
                 class="h-4 w-4 md:h-8 md:w-8 inline-block  text-white"

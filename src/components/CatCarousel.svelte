@@ -5,7 +5,6 @@
   export let paginatedItems;
   export let title1;
   export let title2;
-  import { styling } from '../../wp-settings'
 
   function getKeyByValue(object, value) {
     return Object.keys(object).find((key) => object[key] === value);
@@ -14,13 +13,13 @@
 </script>
 
 <div
-  class="lg:px-6 px-6 py-4 bg-gradient-to-r from-{styling.homeFeaturedArticle}-200 via-{styling.homeFeaturedArticle}-100 to-{styling.homeFeaturedArticle}-50 w-full"
+  class="lg:px-6 px-6 py-4 w-full"
 >
   <h1
-    class="mt-4 text-2xl tracking-tight font-extrabold text-{styling.secondaryColor}-900 sm:text-2xl md:text-2xl mb-8 border-b-2 border-{styling.secondaryColor}-800"
+    class="mt-4 text-2xl tracking-tight font-extrabold text-primary sm:text-2xl md:text-2xl mb-8 border-b-2 border-gray-800"
   >
     <span class="inline italic">{title1}</span>
-    <span class="inline text-{styling.secondaryColor}-600 ">{title2}</span>
+    <span class="inline text-secondary ">{title2}</span>
   </h1>
 </div>
 

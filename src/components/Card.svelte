@@ -1,7 +1,6 @@
 <script>
 
   import moment from "moment";
-  import { styling } from "../../wp-settings"
   export let title = '';
   export let date = '';
   // export let excerpt = '';
@@ -26,7 +25,7 @@
     </a>
     <div class="p-6">
       <a class="mt-2" href="articles/{slug}" {title}>
-        <h1 class="title-font text-lg font-medium text-{styling.secondaryColor}-900 mb-3">
+        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
           {title ? title : ''}
         </h1>
       </a>
@@ -40,7 +39,7 @@
       </p>
       {#each (categories ? categories : '') as cat}
         <span
-          class="text-xs font-semibold inline-block py-1 px-2 rounded text-{styling.primeColorws}-600 bg-{styling.primeColorws}-200 uppercase last:mr-0 mr-1"
+          class="text-xs font-semibold inline-block py-1 px-2 rounded text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1"
         >
           <a href="categories/{cat.toString().toLowerCase()}">{cat}</a>
         </span>

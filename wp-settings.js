@@ -25,7 +25,7 @@ export const styling = {
   primeColor : 'purple-500',
   primeColorws : 'purple',
   homeFeaturedArticle : 'White',
-  secondaryColor : 'gray'
+  secondaryColor : 'gray',
 }
 
 export const settings = {
@@ -77,5 +77,4 @@ export const urls = {
   },
   copyright: '© 2021 All rights reserved.'
 }
-
 
