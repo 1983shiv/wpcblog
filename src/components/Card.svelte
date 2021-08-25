@@ -24,7 +24,7 @@
       />
     </a>
     <div class="p-6">
-      <a class="mt-2" href="articles/{slug}" {title}>
+      <a class="mt-2" href="articles/{slug}" {title} rel=preload>
         <h1 class="title-font text-lg font-medium text-shades-900 mb-3">
           {title ? title : ''}
         </h1>

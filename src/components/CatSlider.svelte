@@ -47,10 +47,12 @@
         <div
           class="rounded bg-white border-shades-200 shadow-md overflow-hidden relative hover:shadow-lg"
         >
-        <a href="articles/{item.slug}">
+        <a href="articles/{item.slug}" rel=preload alt={item.title}>
           <img
             src={item.featured_image}
             alt="stew"
+            width="auto"
+            height="auto"
             class="h-48 md:h-96 w-full object-cover sliderimg"
           />
           
@@ -95,7 +97,7 @@
 <style>
 @media screen and (min-width: 600px) {
 .sliderimg{
-    height: 500px;
+    height: 600px;
   }
 }
 /* .vertical-center {
