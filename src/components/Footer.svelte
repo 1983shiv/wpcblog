@@ -4,17 +4,17 @@
   import { settings } from '../../wp-settings'
 </script>
 
-<footer class="text-white bg-gray-50 body-font mb-0">
+<footer class="bg-shades-50 body-font mb-0 text-left">
   <div class="flex flex-wrap px-12 py-5 items-center justify-center">
     <a
       href="."
-      class="title-font font-medium text-gray-900"
+      class="title-font font-medium text-shades-900"
     >
       <Logo />
 
     </a>
     <p
-    class="text-sm text-gray-500 ml-4 sm:border-gray-200"
+    class="text-sm text-shades-900 ml-4 sm:border-shades-200"
   >
     {settings.copyright}
   </p>

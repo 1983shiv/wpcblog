@@ -57,10 +57,10 @@ class="flex flex-wrap mx-2 overflow-hidden my-4 sm:mx-2 md:mx-4 lg:mx-4 xl:mx-4"
 >
 <div class="container px-5 py-24 mx-auto">
   <div class="flex flex-col text-center w-full mb-12">
-  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">No Results found</h1>
+  <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-shades-900">No Results found</h1>
   <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please go back to home page</p>
   <a href="." class="p-2 w-full my-4">
-    <button class="flex mx-auto text-white bg-pink-500 border-0 py-2 px-8 focus:outline-none hover:bg-pink-600 rounded text-lg">Home</button>
+    <button class="flex mx-auto text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">Home</button>
   </a>
   </div>
  

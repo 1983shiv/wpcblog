@@ -22,7 +22,7 @@
 </script>
 
 <header
-  class="lg:px-16 px-6 bg-gray-50 flex flex-wrap items-center lg:py-2 py-2"
+  class="lg:px-16 px-6 bg-shades-50 flex flex-wrap items-center lg:py-2 py-2"
 >
   <Logo />
 
@@ -31,7 +31,7 @@
     class="pointer-cursor lg:hidden block"
     on:click={toggleNav}
     ><svg
-      class="fill-current text-gray-900"
+      class="fill-current text-shades-900"
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -49,12 +49,12 @@
   >
     <nav>
       <ul
-        class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0"
+        class="lg:flex items-center justify-between text-base text-shades-700 pt-4 lg:pt-0"
       >
         <li on:click={toggleNav}>
           <Navli
             text="Home"
-            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-pink-400"
+            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-main-400"
             linkk="."
             {segment}
           />
@@ -64,7 +64,7 @@
             <li on:click={toggleNav}>
               <Navli
                 text={cat.name}
-                classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-pink-400"
+                classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-main-400"
                 linkk="/categories/{cat.slug}"
                 {segment}
               />
@@ -74,7 +74,7 @@
         <li on:click={toggleNav}>
           <Navli
             text="Contact"
-            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-pink-400"
+            classes="lg:p-4 py-3 px-0 block border-b-2 font-extrabold border-transparent hover:border-main-400"
             linkk="contact"
             {segment}
           />
@@ -86,14 +86,14 @@
                 type="text"
                 placeholder="Search..."
                 bind:value={searchTerm}
-                class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pr-10"
+                class="px-2 py-1 placeholder-shades-300 text-shades-600 relative bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full pr-10"
               />
 
               <span
-                class="z-10 h-full leading-snug font-normal absolute text-center text-blueGray-300 bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1"
+                class="z-10 h-full leading-snug font-normal absolute text-center text-shades-300 bg-transparent rounded text-base items-center justify-center w-8 right-0 pr-2 py-1"
               >
                 <svg
-                  class="h-4 w-4 text-pink-500"
+                  class="h-4 w-4 text-main-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"

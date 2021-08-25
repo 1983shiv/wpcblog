@@ -1,5 +1,7 @@
 <script>
-  import { customLogo } from '../../wp-settings'
+  import { customLogo, metaTitle } from '../../wp-settings'
+  import Logo from '../node_modules/images/Logo200.png'
+  
 
 </script>
 
@@ -7,11 +9,12 @@
 <div class="flex-1 flex justify-between items-start">
   <a href="." class="flex flex-nowrap inline">
     {#if customLogo}
-    <img src="./logo.png" alt="Logo ninjatele" />
+    <img src="{Logo}" alt="Currency Market Review" />
+    
     {:else}
     
     <svg
-      class="h-6 w-6 text-pink-500"
+      class="h-6 w-6 text-main-500"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -44,7 +47,7 @@
         d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"
       /></svg
     >
-    <span class="font-extrabold font-4xl ml-1 font-heading1">Ninjatale</span>
+    <span class="font-extrabold font-4xl ml-1 font-heading1">{metaTitle}</span>
     {/if}
   </a>
 </div>

@@ -7,9 +7,9 @@
 
 <div class="m-4 p-8 shadow flex flex-wrap">
   <h2
-    class="bg-pink-500 text-white rounded p-2 text-xl text-bold shadow w-full mb-4"
+    class="bg-main-500 text-white rounded p-2 text-xl text-bold shadow w-full mb-4"
   >
-    Stack
+    Topics
   </h2>
   {#each catmenu.categories as cat}
     {#if !(`${cat.slug}` === "uncategorized")}
@@ -17,7 +17,7 @@
         prefetch
         href={`/categories/${cat.slug}`}
         title={cat.name}
-        class="p-2 hover:p-4 hover:translate-x-2 hover:bg-gray-50">#{cat.name}
+        class="p-2 hover:p-4 hover:translate-x-2 hover:bg-shades-50">#{cat.name}
       </a>
     {/if}
   {/each}

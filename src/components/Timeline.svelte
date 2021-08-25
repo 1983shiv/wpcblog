@@ -24,7 +24,7 @@
             />
 
             <div class="p-6">
-              <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+              <h1 class="title-font text-lg font-medium text-shades-900 mb-3">
                 {title}
               </h1>
               {moment(date).format("Do MMMM YYYY")}

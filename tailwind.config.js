@@ -22,6 +22,8 @@ module.exports = {
         bgprimary: '#f4f4f4',
         bgsecondary: '#999999',
         shades: colors.coolGray,
+        main: colors.fuchsia,
+        lowprimary: '#FBCFE8',
         // ...
       },
     },

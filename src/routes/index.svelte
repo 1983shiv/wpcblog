@@ -2,6 +2,8 @@
   import RecentCarousel from "../components/RecentCarousel.svelte";
   import CatSlider from "../components/CatSlider.svelte";
   import CatCarousel from "../components/CatCarousel.svelte";
+  import HomeGrid from "../components/HomeGrid.svelte";
+  import HomeFeatured from "../components/HomeFeatured.svelte";
   import SvelteSeo from "svelte-seo";
   import { 
     urls, 
@@ -14,6 +16,20 @@
   let dc1Posts = {};
   let dc2Posts = {};
   let dc3Posts = {};
+
+  async function getAllPosts() {
+    if(process.browser){
+      let res1 = await fetch(urls.POST);
+
+      if (res1.status !== 200) {
+        return this.error(404, 'Not found');
+      }
+
+      let posts = await res1.json();
+      let allPosts = posts.posts;
+      return allPosts;
+    }
+  }
 
   async function getPosts() {
     if(process.browser){
@@ -43,7 +59,7 @@
       }
 
       let featuredposts = await res2.json();
-      featuredposts = featuredposts.posts
+      featuredposts = featuredposts.posts;
       return featuredposts;
     }
   }
@@ -85,6 +101,7 @@
   }
 
   const postPromise = getPosts();
+  const allPostsPromise = getAllPosts();
   const featuredCatPromise = getfeaturedcat();
   const displayCategory1Promise = displayCategory1.length > 0 ? getDisplayCategory1() : [];
   const displayCategory2Promise = displayCategory2.length > 0 ? getDisplayCategory2() : [];
@@ -107,6 +124,7 @@
 {#await postPromise}
   <p>Loading...</p>
 {:then sliderPosts}
+
   <CatSlider paginatedItems={sliderPosts} />
 {:catch error}
   <p style="color: red">{error.message}</p>
@@ -117,19 +135,30 @@
 >
 
 
-
-{#await featuredCatPromise}
+{#await allPostsPromise}
   <p>Loading...</p>
-{:then featuredposts}
-  <CatCarousel
-  paginatedItems={featuredposts}
-  title1="Featured articles"
-  title2=""
-  />
+{:then allPosts}
+  <HomeGrid paginatedItems={allPosts} />
 {:catch error}
   <p style="color: red">{error.message}</p>
 {/await}
 
+
+<!-- {#await featuredCatPromise}
+  <p>Loading...</p>
+{:then featuredposts}
+  
+  <CatCarousel
+    paginatedItems={featuredposts}
+    title1="Featured articles"
+    title2=""
+  />
+  
+{:catch error}
+  <p style="color: red">{error.message}</p>
+{/await} -->
+
+<!-- 
 {#await displayCategory1Promise}
   <p>Loading...</p>
 {:then dc1Posts}
@@ -164,7 +193,7 @@
   />
 {:catch error}
   <p style="color: red">{error.message}</p>
-{/await}
+{/await} -->
 
 
 </section>

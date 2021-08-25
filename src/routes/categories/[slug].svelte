@@ -66,35 +66,53 @@ import TitleHero from "../../components/TitleHero.svelte";
 />
 
 <TitleHero title1="Articles from #" title2={title} />
-
-<section
-  class="flex flex-wrap overflow-hidden"
->
-<div
-class="lg:px-16 px-6 flex flex-wrap justify-center my-1 w-full overflow-hidden sm:my-2 sm:w-full md:my-2 md:w-2/3 lg:my-2 lg:w-2/3 xl:my-2 xl:w-2/3"
->
-<Grid {paginatedItems} />
-<div class="flex mx-auto">
-  {#if items.length > settings.POSTPERPAGE }
-    <div class="m-8">
-      <LightPaginationNav
-        totalItems={items.length}
-        {pageSize}
-        {currentPage}
-        limit={1}
-        showStepOptions={true}
-        on:setPage={(e) => (currentPage = e.detail.page)}
-      />
-    </div>
-  {/if}
-</div>
-</div>
-<div
-    class="container my-8 px-6 w-full overflow-hidden sm:my-8 sm:px-8 sm:w-full md:my-2 md:px-2 md:w-1/3 lg:my-2 lg:px-2 lg:w-1/3 xl:my-2 xl:px-2 xl:w-1/3"
+{#if (paginatedItems.length > 0)}
+  <section
+    class="flex flex-wrap overflow-hidden"
   >
-    <Sidebar {catmenu}/>
+  <div
+  class="lg:px-16 px-6 flex flex-wrap justify-center my-1 w-full overflow-hidden sm:my-2 sm:w-full md:my-2 md:w-2/3 lg:my-2 lg:w-2/3 xl:my-2 xl:w-2/3"
+  >
+  <Grid {paginatedItems} />
+  <div class="flex mx-auto">
+    {#if items.length > settings.POSTPERPAGE }
+      <div class="m-8">
+        <LightPaginationNav
+          totalItems={items.length}
+          {pageSize}
+          {currentPage}
+          limit={1}
+          showStepOptions={true}
+          on:setPage={(e) => (currentPage = e.detail.page)}
+        />
+      </div>
+    {/if}
+  </div>
+  </div>
+  <div
+      class="container my-8 px-6 w-full overflow-hidden sm:my-8 sm:px-8 sm:w-full md:my-2 md:px-2 md:w-1/3 lg:my-2 lg:px-2 lg:w-1/3 xl:my-2 xl:px-2 xl:w-1/3"
+    >
+      <Sidebar {catmenu}/>
+    </div>
+  </section>
+{:else}
+<section id="articles"
+class="flex flex-wrap mx-2 overflow-hidden my-4 sm:mx-2 md:mx-4 lg:mx-4 xl:mx-4"
+>
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-12">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-shades-900">Ohh!</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">There is no articles found</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please go back to home</p>
+      <a href="." class="p-2 w-full">
+        <button class="flex mx-auto text-white bg-main-500 border-0 py-2 px-8 focus:outline-none hover:bg-main-600 rounded text-lg">Home</button>
+      </a>
+    </div>
   </div>
 </section>
+{/if}
+
+
 
 
  

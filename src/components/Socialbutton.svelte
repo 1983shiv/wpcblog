@@ -5,7 +5,7 @@
 
 <span class="inline-flex  mt-4">
   {#if settings.socialmediaurls.facebook !== ''}
-  <a href={settings.socialmediaurls.facebook} class="text-gray-500">
+  <a href={settings.socialmediaurls.facebook} class="text-shades-500">
     <svg
       fill="currentColor"
       stroke-linecap="round"
@@ -21,7 +21,7 @@
   </a>
   {/if}
   {#if settings.socialmediaurls.twitter !== ''}
-  <a href={settings.socialmediaurls.twitter} class="ml-4 text-gray-500">
+  <a href={settings.socialmediaurls.twitter} class="ml-4 text-shades-500">
     <svg
       fill="currentColor"
       stroke-linecap="round"
@@ -37,7 +37,7 @@
   </a>
   {/if}
   {#if settings.socialmediaurls.instagram !== ''}
-  <a href={settings.socialmediaurls.instagram} class="ml-4 text-gray-500">
+  <a href={settings.socialmediaurls.instagram} class="ml-4 text-shades-500">
     <svg
       fill="none"
       stroke="currentColor"

@@ -10,6 +10,7 @@ import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import sapperEnv from 'sapper-environment';
 import sveltePreprocess from 'svelte-preprocess'
+// import svg from 'rollup-plugin-svg'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';

@@ -13,10 +13,10 @@
     class="lg:px-6 px-6 py-4 w-full"
   >
     <h1
-      class="mt-4 text-2xl tracking-tight font-extrabold text-pink-500 sm:text-2xl md:text-2xl mb-8 border-b-4 border-gray-800"
+      class="mt-4 text-2xl tracking-tight font-extrabold text-main-500 sm:text-2xl md:text-2xl mb-8 border-b-4 border-shades-800"
     >
       <span class="inline italic">{title1}</span>
-      <span class="inline text-gray-600 ">{title2}</span>
+      <span class="inline text-shades-600 ">{title2}</span>
     </h1>
   </div>
   

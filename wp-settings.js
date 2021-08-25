@@ -4,19 +4,19 @@
  * n1demo.wordpress.com, hence handle/subdomain  will be n1demo.
  */
 
-export const wpHandle = "n1demo";
-export const metaTitle = "NinjaTech Demo";
+export const wpHandle = "currencymarket390670375";
+export const metaTitle = "Currency Market Reviews";
 // not more than 150 characters;
-export const metaDescription = "Learnign to explore svelte and sapper technologies";
+export const metaDescription = "Articles and analysis overview of investment, personal finance and technical analysis of securities, future, forex and penny stocks";
 
 // please add slug of categories those you want to display on homepage
-export const displayCategory1 = "beauty";
-export const displayCategory2 = "health";
-export const displayCategory3 = "skin";
+export const displayCategory1 = "mutual-fund";
+export const displayCategory2 = "stock";
+export const displayCategory3 = "currencymarket";
 
 // styling
 // just copy your logo.png file to static folder and make customLogo to true.
-export const customLogo = false;
+export const customLogo = true;
 
 // options available Gray, Red, Yellow, Green, Blue, Indigo, Purple, Pink
 // https://tailwindcss.com/docs/customizing-colors#overview
@@ -42,11 +42,11 @@ export const settings = {
   headingFontFamily:'',
   paraFontFamily:'',
   socialmediaurls: {
-    facebook: 'https://www.facebook.com/webdesignninjas/',
-    instagram: 'https://instagram.com/ninjatech.dev',
-    twitter:'https://twitter.com/const_shiv',
-    linkedin:'https://linked.com/in/shivsrivatsava',
-    skype:'srivastava.shiv',
+    facebook: '#',
+    instagram: '#',
+    twitter:'#',
+    linkedin:'#',
+    skype:'#',
   },
   copyright: '© 2021 All rights reserved.'
 }

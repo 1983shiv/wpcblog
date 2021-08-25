@@ -25,12 +25,12 @@
     </a>
     <div class="p-6">
       <a class="mt-2" href="articles/{slug}" {title}>
-        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">
+        <h1 class="title-font text-lg font-medium text-shades-900 mb-3">
           {title ? title : ''}
         </h1>
       </a>
       <h4
-        class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1"
+        class="tracking-widest text-xs title-font font-medium text-shades-400 mb-1"
       >
         <!-- <Tags {tags} /> -->
       </h4>
@@ -39,7 +39,7 @@
       </p>
       {#each (categories ? categories : '') as cat}
         <span
-          class="text-xs font-semibold inline-block py-1 px-2 rounded text-pink-600 bg-pink-200 uppercase last:mr-0 mr-1"
+          class="text-xs font-semibold inline-block py-1 px-2 rounded text-main-500 bg-shades-100 uppercase last:mr-0 mr-1"
         >
           <a href="categories/{cat.toString().toLowerCase()}">{cat}</a>
         </span>
