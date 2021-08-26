@@ -22,6 +22,7 @@
     "node-sass": "^6.0.1",
     "polka": "next",
     "sapper-environment": "^1.0.1",
+    "sapper-google-analytics": "^1.0.2",
     "sirv": "^1.0.0",
     "svelte-preprocess": "^4.7.4"
   },

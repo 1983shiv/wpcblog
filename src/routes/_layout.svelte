@@ -14,6 +14,7 @@
 <script>
   import Nav2 from "../components/Nav2.svelte";
   import Footer from "../components/Footer.svelte";
+  import GoogleAnalytics from '../components/GoogleAnalytics.svelte';
   export let segment;
   export let catmenu;
 </script>
@@ -25,7 +26,7 @@
   </div>
   <Footer />
 </div> -->
-
+<GoogleAnalytics />
 <Nav2 {segment} {catmenu}/>
 <slot />
 <Footer />
