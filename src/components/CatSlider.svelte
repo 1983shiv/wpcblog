@@ -97,7 +97,7 @@
 <style>
 @media screen and (min-width: 600px) {
 .sliderimg{
-    height: 600px;
+    /* height: 600px; */
   }
 }
 /* .vertical-center {

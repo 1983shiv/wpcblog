@@ -1,9 +1,9 @@
 <script>
-  import RecentCarousel from "../components/RecentCarousel.svelte";
+  // import RecentCarousel from "../components/RecentCarousel.svelte";
   import CatSlider from "../components/CatSlider.svelte";
-  import CatCarousel from "../components/CatCarousel.svelte";
+  // import CatCarousel from "../components/CatCarousel.svelte";
   import HomeGrid from "../components/HomeGrid.svelte";
-  import HomeFeatured from "../components/HomeFeatured.svelte";
+  import FeaturedHero from "../components/FeaturedHero.svelte";
   import SvelteSeo from "svelte-seo";
   import { 
     urls, 
@@ -16,6 +16,8 @@
   let dc1Posts = {};
   let dc2Posts = {};
   let dc3Posts = {};
+  let allPosts = [];
+  
 
   async function getAllPosts() {
     if(process.browser){
@@ -26,7 +28,8 @@
       }
 
       let posts = await res1.json();
-      let allPosts = posts.posts;
+
+      allPosts = posts.posts;
       return allPosts;
     }
   }
@@ -40,12 +43,15 @@
       }
 
       let posts = await res1.json();
+
       let sliderPosts = [];
+
       if(posts.posts.length > 3){
-        sliderPosts = posts.posts.slice(0,3);
+        sliderPosts = posts.posts.slice(1,1);
       } else {
         sliderPosts = posts.posts;
       }
+
       return sliderPosts;
     }
   }
@@ -102,10 +108,10 @@
 
   const postPromise = getPosts();
   const allPostsPromise = getAllPosts();
-  const featuredCatPromise = getfeaturedcat();
-  const displayCategory1Promise = displayCategory1.length > 0 ? getDisplayCategory1() : [];
-  const displayCategory2Promise = displayCategory2.length > 0 ? getDisplayCategory2() : [];
-  const displayCategory3Promise = displayCategory3.length > 0 ? getDisplayCategory3() : [];
+  // const featuredCatPromise = getfeaturedcat();
+  // const displayCategory1Promise = displayCategory1.length > 0 ? getDisplayCategory1() : [];
+  // const displayCategory2Promise = displayCategory2.length > 0 ? getDisplayCategory2() : [];
+  // const displayCategory3Promise = displayCategory3.length > 0 ? getDisplayCategory3() : [];
   
 
 </script>
@@ -121,79 +127,31 @@
   }}
 />
 
-{#await postPromise}
-  <p>Loading...</p>
-{:then sliderPosts}
+<FeaturedHero />
 
+<!-- {#await postPromise}
+  <p class="justify-center">Loading...</p>
+{:then sliderPosts}
   <CatSlider paginatedItems={sliderPosts} />
 {:catch error}
   <p style="color: red">{error.message}</p>
-{/await}
+{/await} -->
 
-<section
-  class="flex flex-wrap overflow-hidden lg:px-16 px-6"
->
+<!-- <CatSlider paginatedItems={sliderPosts} /> -->
 
-
-{#await allPostsPromise}
-  <p>Loading...</p>
-{:then allPosts}
+<section class="flex flex-wrap overflow-hidden lg:px-16 px-6">
   <HomeGrid paginatedItems={allPosts} />
-{:catch error}
-  <p style="color: red">{error.message}</p>
-{/await}
-
-
-<!-- {#await featuredCatPromise}
-  <p>Loading...</p>
-{:then featuredposts}
-  
-  <CatCarousel
-    paginatedItems={featuredposts}
-    title1="Featured articles"
-    title2=""
-  />
-  
-{:catch error}
-  <p style="color: red">{error.message}</p>
-{/await} -->
-
-<!-- 
-{#await displayCategory1Promise}
-  <p>Loading...</p>
-{:then dc1Posts}
-  <RecentCarousel
-  paginatedItems={dc1Posts}
-  title1="Recent articles from "
-  title2="{displayCategory1}"
-  />
-{:catch error}
-  <p style="color: red">{error.message}</p>
-{/await}
-
-{#await displayCategory2Promise}
-  <p>Loading...</p>
-{:then dc2Posts}
-  <RecentCarousel
-  paginatedItems={dc2Posts}
-  title1="Recent articles from "
-  title2="{displayCategory2}"
-  />
-{:catch error}
-  <p style="color: red">{error.message}</p>
-{/await}
-
-{#await displayCategory3Promise}
-  <p>Loading...</p>
-{:then dc3Posts}
-  <RecentCarousel
-  paginatedItems={dc3Posts}
-  title1="Recent articles from "
-  title2="{displayCategory3}"
-  />
-{:catch error}
-  <p style="color: red">{error.message}</p>
-{/await} -->
-
 
 </section>
+
+<!-- {#await allPostsPromise}
+  <p>Loading...</p>
+{:then allPosts}
+  <section class="flex flex-wrap overflow-hidden lg:px-16 px-6">
+  <HomeGrid paginatedItems={allPosts} />
+
+</section>
+
+{:catch error}
+  <p style="color: red">{error.message}</p>
+{/await} -->

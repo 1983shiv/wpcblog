@@ -9,7 +9,7 @@
 <div class="flex-1 flex justify-between items-start">
   <a href="." class="flex flex-nowrap inline">
     {#if customLogo}
-    <img src="{Logo}" alt="Currency Market Review" />
+      <img src="{Logo}" alt="Currency Market Review" width="200px" height="auto" />
     
     {:else}
     

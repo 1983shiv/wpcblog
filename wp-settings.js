@@ -17,6 +17,9 @@ export const displayCategory3 = "currencymarket";
 // styling
 // just copy your logo.png file to static folder and make customLogo to true.
 export const customLogo = true;
+export const featuredHero = '/articles/what-is-the-mutual-fund';
+export const featuredTitle = 'What is the Mututal Fund';
+// export const featuredImage = 'What is the Mututal Fund';
 
 // options available Gray, Red, Yellow, Green, Blue, Indigo, Purple, Pink
 // https://tailwindcss.com/docs/customizing-colors#overview
