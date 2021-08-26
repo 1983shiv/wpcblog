@@ -4,8 +4,8 @@
 
 const fs = require('fs');
 const fetch = require('node-fetch')
-const urls = 'https://public-api.wordpress.com/rest/v1.1/sites/n1demo.wordpress.com/posts/'
-const BASE_URL = "localhost:3000";
+const urls = 'https://public-api.wordpress.com/rest/v1.1/sites/currencymarket390670375.wordpress.com/posts/'
+const BASE_URL = "currencymarket.review";
 const pages = [""];
 
 

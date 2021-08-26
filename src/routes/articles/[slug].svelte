@@ -1,5 +1,5 @@
 <script context="module">
-  import { urls } from "../../../wp-settings.js";
+  import { urls, metaTitle } from "../../../wp-settings.js";
 
   export async function preload({ params, query }) {
     const res = await this.fetch(`${urls.POST}slug:${params.slug}`);
@@ -47,10 +47,10 @@
 </script>
 
 <SvelteSeo
-  title={post.title}
+  title="{post.title} - {metaTitle}"
   description={post.excerpt}
   openGraph={{
-    title: post.title,
+    title: `${post.title} - ${metaTitle}`,
     description: post.excerpt,
     url: `${urls.BASE}${post.slug}`,
     type: "website",

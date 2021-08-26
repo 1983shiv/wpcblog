@@ -1,3 +1,19 @@
+<script context="module">
+  import { urls } from "../../wp-settings.js";
+
+  export async function preload({}) {
+    const res1 = await this.fetch(urls.POST);
+    if (res1.status !== 200) {
+        return this.error(404, 'Not found');
+      }
+
+      let posts = await res1.json();
+
+      const allPosts = posts.posts;
+      return {allPosts};
+  }
+</script>
+
 <script>
   // import RecentCarousel from "../components/RecentCarousel.svelte";
   // import CatSlider from "../components/CatSlider.svelte";
@@ -6,7 +22,6 @@
   import FeaturedHero from "../components/FeaturedHero.svelte";
   import SvelteSeo from "svelte-seo";
   import { 
-    urls, 
     metaTitle, 
     metaDescription } from "../../wp-settings.js";
   // import { 
@@ -20,23 +35,23 @@
   // let dc1Posts = {};
   // let dc2Posts = {};
   // let dc3Posts = {};
-  let allPosts = [];
+  // let allPosts = [];
   
+    export let allPosts;
+  // async function getAllPosts() {
+  //   if(process.browser){
+  //     let res1 = await fetch(urls.POST);
 
-  async function getAllPosts() {
-    if(process.browser){
-      let res1 = await fetch(urls.POST);
+  //     if (res1.status !== 200) {
+  //       return this.error(404, 'Not found');
+  //     }
 
-      if (res1.status !== 200) {
-        return this.error(404, 'Not found');
-      }
+  //     let posts = await res1.json();
 
-      let posts = await res1.json();
-
-      allPosts = posts.posts;
-      return allPosts;
-    }
-  }
+  //     allPosts = posts.posts;
+  //     return allPosts;
+  //   }
+  // }
 
   // async function getPosts() {
   //   if(process.browser){
@@ -111,7 +126,7 @@
   // }
 
   // const postPromise = getPosts();
-  const allPostsPromise = getAllPosts();
+  // const allPostsPromise = getAllPosts();
   // const featuredCatPromise = getfeaturedcat();
   // const displayCategory1Promise = displayCategory1.length > 0 ? getDisplayCategory1() : [];
   // const displayCategory2Promise = displayCategory2.length > 0 ? getDisplayCategory2() : [];
@@ -143,19 +158,19 @@
 
 <!-- <CatSlider paginatedItems={sliderPosts} /> -->
 
-<!-- <section class="flex flex-wrap overflow-hidden lg:px-16 px-6">
-  <HomeGrid paginatedItems={allPosts} />
-
-</section> -->
-
-{#await allPostsPromise}
-  <p>Loading...</p>
-{:then allPosts}
-  <section class="flex flex-wrap overflow-hidden lg:px-16 px-6">
+<section class="flex flex-wrap overflow-hidden lg:px-16 px-6">
   <HomeGrid paginatedItems={allPosts} />
 
 </section>
 
+<!-- <section class="flex flex-wrap overflow-hidden lg:px-16 px-6"></section>
+{#await allPostsPromise}
+  <p>Loading...</p>
+{:then allPosts}
+  
+  <HomeGrid paginatedItems={allPosts} />
+
 {:catch error}
   <p style="color: red">{error.message}</p>
 {/await}
+</section> -->

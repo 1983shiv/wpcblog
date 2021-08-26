@@ -1,5 +1,5 @@
 <script context="module">
-  import { urls, metaDescription, settings } from "../../../wp-settings.js";
+  import { urls, metaTitle, metaDescription, settings } from "../../../wp-settings.js";
 
   export async function preload({ params, query }) {
     const res = await this.fetch(`${urls.POST}/?category=${params.slug}`);
@@ -55,10 +55,10 @@ import TitleHero from "../../components/TitleHero.svelte";
 </script>
 
 <SvelteSeo
-  title={title}
+  title="{title} - {metaTitle}"
   description="{title} | {metaDescription}"
   openGraph={{
-    title: title,
+    title: `${title} | ${metaDescription}`,
     description: `${title} | ${metaDescription}`,
     url: `${urls.BASE}category/${title}`,
     type: "website",

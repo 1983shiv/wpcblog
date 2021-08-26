@@ -1,5 +1,5 @@
 <script context="module">
-  import { urls, settings } from "../../../wp-settings.js";
+  import { urls, metaTitle, settings } from "../../../wp-settings.js";
 
   export async function preload({ params, query }) {
     console.log("p", query.s);
@@ -40,7 +40,7 @@
 </script>
 
 <SvelteSeo
-  title="Searching for {title}"
+  title="Searching for {title} - {metaTitle}"
   description="you have searched for {title}"
   openGraph={{
     title: `Searching for ${title}`,
@@ -49,6 +49,8 @@
     type: "website",
   }}
 />
+
+
 
 {#if paginatedItems.length === 0}
 

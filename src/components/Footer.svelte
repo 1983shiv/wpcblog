@@ -4,7 +4,7 @@
   import { settings } from '../../wp-settings'
 </script>
 
-<!-- <footer class="bg-shades-50"> -->
+
 <footer class="bg-shades-100">
   <div class="flex flex-wrap px-12 py-5 items-center justify-center">
     <a
