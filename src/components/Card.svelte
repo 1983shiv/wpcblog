@@ -1,6 +1,7 @@
 <script>
 
   import moment from "moment";
+  import ImageLoader from './image/ImageLoader.svelte'
   export let title = '';
   export let date = '';
   // export let excerpt = '';
@@ -15,13 +16,13 @@
 <div class="w-full cover my-4">
   <div class="shadow rounded-lg overflow-hidden">
     <a class="mt-2" href="articles/{slug}" {title}>
-      <img
+      <ImageLoader
         class="w-full object-cover object-center overflow-hidden min-h-60 max-h-60"
         src={imgsrc ? imgsrc : ''}
         alt={title ? title : ''}
         width="200px"
         height="120px"
-      />
+      ></ImageLoader>
     </a>
     <div class="p-6">
       <a class="mt-2" href="articles/{slug}" {title} rel=preload>
