@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+    <url><loc>currencymarket.review/</loc><priority>0.85</priority></url>
+  
+
+    <url><loc>currencymarket.review/articles</loc><priority>0.85</priority></url>
+  
+
+    <url><loc>currencymarket.review/categories</loc><priority>0.85</priority></url>
+  
+
+    <url><loc>currencymarket.review/contact</loc><priority>0.85</priority></url>
+  
+
+    <url><loc>currencymarket.review/search</loc><priority>0.85</priority></url>
+  
+
+    <url><loc>currencymarket.review/tags</loc><priority>0.85</priority></url>
+  
+  
+    <url>
+      <loc>currencymarket.review/blog/why-to-invest-in-close-end-funds</loc>
+      <priority>0.69</priority>
+    </url>
+  
+
+    <url>
+      <loc>currencymarket.review/blog/what-is-an-institutional-fund</loc>
+      <priority>0.69</priority>
+    </url>
+  
+
+    <url>
+      <loc>currencymarket.review/blog/exchange-traded-funds-etfs-vs-closed-end-funds</loc>
+      <priority>0.69</priority>
+    </url>
+  
+
+    <url>
+      <loc>currencymarket.review/blog/what-is-the-mutual-fund</loc>
+      <priority>0.69</priority>
+    </url>
+  
+
+    <url>
+      <loc>currencymarket.review/blog/types-of-mutual-funds</loc>
+      <priority>0.69</priority>
+    </url>
+  
+
+    <url>
+      <loc>currencymarket.review/blog/what-is-an-exchange</loc>
+      <priority>0.69</priority>
+    </url>
+  
+</urlset>
