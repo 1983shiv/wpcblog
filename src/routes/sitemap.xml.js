@@ -5,7 +5,7 @@
 const fs = require('fs');
 const fetch = require('node-fetch')
 const urls = 'https://public-api.wordpress.com/rest/v1.1/sites/currencymarket390670375.wordpress.com/posts/'
-const BASE_URL = "currencymarket.review";
+const BASE_URL = "https://www.currencymarket.review";
 const pages = [""];
 
 
@@ -16,12 +16,18 @@ fs.readdirSync("./src/routes").forEach(file => {
   }
 });
 
+{/* <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"></urlset> */}
+let today = new Date();
 const render = (pages, posts) => `<?xml version="1.0" encoding="UTF-8" ?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   ${pages
     .map(
       page => `
-    <url><loc>${BASE_URL}/${page}</loc><priority>0.85</priority></url>
+    <url>
+      <loc>${BASE_URL}/${page}</loc>
+      <lastmod>${today}</lastmod>
+      <priority>0.85</priority>
+    </url>
   `
     )
     .join("\n")}
@@ -30,6 +36,7 @@ const render = (pages, posts) => `<?xml version="1.0" encoding="UTF-8" ?>
       post => `
     <url>
       <loc>${BASE_URL}/blog/${post.slug}</loc>
+      <lastmod>${today}</lastmod>
       <priority>0.69</priority>
     </url>
   `
